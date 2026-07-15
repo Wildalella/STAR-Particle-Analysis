@@ -1,56 +1,29 @@
----
+## Limitations and Future Development
 
-# Current Limitations & Future Development
+The STAR Particle Analysis Pipeline is actively being improved. Future updates will focus on increasing automation, portability, and detection accuracy.
 
-The STAR Particle Analysis Pipeline is under active development. The following features are planned for future releases:
+### Planned Improvements
 
-## Docker Support
+- **Docker Containerization**
+  - Package the complete pipeline into a Docker container for reproducible deployment across different systems.
+  - Simplify installation by including all required dependencies, models, and application requirements.
 
-- Containerize the complete application using **Docker** to simplify installation and ensure reproducible execution across Windows, macOS, and Linux.
-- Bundle all required dependencies, including Python packages, OpenCV, Streamlit, and the inference SDK.
-- Provide Docker Compose support for one-command deployment.
+- **Automatic Artifact Removal**
+  - Improve preprocessing to automatically detect and remove non-biological features such as:
+    - Scale bars
+    - Measurement labels
+    - Figure annotations
+    - Text and symbols
+  - Replace manually defined exclusion zones with automated masking methods using OCR and computer vision.
 
-**Goal:**
-- `docker build`
-- `docker run`
-- Launch the complete Streamlit application without manual environment setup.
+- **Machine Learning Improvements**
+  - Expand training datasets to improve YOLO detection accuracy.
+  - Add confidence score visualization and improved model evaluation metrics.
 
----
+- **Software Improvements**
+  - Add automated report generation.
+  - Improve batch processing performance.
+  - Support additional microscopy image formats.
+  - Continue improving the Streamlit interface for easier analysis.
 
-## Automatic Annotation Removal
-
-Current images contain non-biological artifacts such as:
-
-- Scale bars
-- Measurement labels (e.g., "2 mm")
-- Figure labels
-- Text annotations
-- Symbols
-- Image borders
-
-Although exclusion zones are currently used to ignore these regions, future versions will automatically detect and remove these artifacts before analysis.
-
-Planned improvements include:
-
-- Automatic scale bar detection
-- OCR-based text detection and masking
-- Figure annotation removal
-- Adaptive region masking
-- Automatic exclusion zone generation
-
-This will allow the pipeline to process images with minimal user configuration.
-
----
-
-## Planned Improvements
-
-- Improve YOLO detection accuracy using larger annotated datasets.
-- Support additional microscopy image formats.
-- Add confidence score visualization for machine learning predictions.
-- Generate PDF summary reports.
-- Export results to additional database formats.
-- Enable parallel batch processing for large datasets.
-- Add configurable analysis parameters through the Streamlit interface.
-- Package the project as an installable Python package.
-
----
+The goal is to create a fully automated, reproducible, and user-friendly platform for microscopy image analysis in biomedical research.
